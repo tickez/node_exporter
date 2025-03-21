@@ -100,7 +100,7 @@ func (c *filesystemCollector) GetStats() (stats []filesystemStats, err error) {
 			avail:     float64(mnt[i].f_bavail) * float64(mnt[i].f_bsize),
 			files:     float64(mnt[i].f_files),
 			filesFree: float64(mnt[i].f_ffree),
-			purgeable: (*float64)(C.purgeable(C.CString(mountpoint))),
+			purgeable: nil,
 			ro:        ro,
 		})
 	}
